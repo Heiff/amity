@@ -1,0 +1,161 @@
+.auth{
+    display: flex;
+    justify-content: flex-start;
+    min-height: 800px;
+    align-items: center;
+    margin: 0 auto;
+
+    & .login{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        gap: 20px;
+
+        & h1{
+            margin: 0;
+            font-weight: 400;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 38px;
+        }
+
+        & h3{
+            margin: 0;
+            font-weight: 300;
+            font-size: 28px;
+        }
+        & label{
+            margin: 0;
+            & i{
+                font-size: 18px;
+            }
+        }
+        & .inputs{
+            display: flex;
+            align-items: center;
+            gap: 0 20px;
+        }
+        & .checkbox{
+            display: flex;
+            justify-content: flex-start;
+            & #checkbox{
+                width: 20px;
+                height: 20px;
+            }
+            & label{
+                margin-left: 20px;
+            }
+        }
+       
+        & input{
+            width: 100%;
+            font-size: 18px;
+            padding: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid #1B71A1;
+        }
+
+        & input:focus{
+            outline: 2px solid #1B71A1;
+            border: none;
+        }
+
+        & .route a{
+            color: #1B71A1;
+        }
+
+        & .btn{
+            display: flex;
+            justify-content: center;
+
+            & button{
+            background: #1B71A1;
+            padding: 5px 20px;
+            color: white;
+            font-size: 20px;
+            border-radius: 8px;
+            border: none;
+            & :hover{
+                cursor: pointer;
+            }
+            }
+        }
+    }
+
+
+    & .register{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & h1{
+            margin: 0;
+            font-size: 38px;
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        & h3{
+            margin: 0;
+            font-weight: 300;
+            font-size: 28px;
+        }
+
+        & .inputs{
+            display: flex;
+            gap: 20px;
+
+            & label{
+                margin: 0;
+
+                & i{
+                min-width: 20px;
+                font-size: 18px;
+                }
+            }
+
+            & div{
+                padding-left: 40px;
+                display: flex;
+                gap: 0 10px;
+                align-items: center;
+            }
+
+            
+        }
+        & input{
+            width: 100%;
+            font-size: 18px;
+            padding: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 2px solid #1B71A1;
+        }
+
+        & input:focus{
+            outline: 2px solid #1B71A1;
+            border: none;
+        }
+        & .btn{
+            display: flex;
+            justify-content: center;
+
+            & button{
+            background: #1B71A1;
+            padding: 5px 20px;
+            color: white;
+            font-size: 20px;
+            border-radius: 8px;
+            border: none;
+            & :hover{
+                cursor: pointer;
+            }
+            }
+        }
+    }
+}
+
+

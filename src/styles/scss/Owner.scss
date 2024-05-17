@@ -1,0 +1,388 @@
+.owner{
+    background:rgb(228, 227, 227);
+    & .cards{
+        display: flex;
+        gap: 0 20px;
+        width: 100%;
+
+        & .dashboard{
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            & .information{
+                display: flex;
+                gap: 60px;
+                justify-content: space-between;
+                width: 100%;
+
+                & .info{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 20px;
+                    background: rgba(255, 255, 255);
+                    border: 1px solid #e5e7eb;
+                    border-radius: 10px;
+                    width:100%;
+
+                    & div{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 3px;
+
+                        & p{
+                            margin: 0;
+                            font-size: 18px;
+                        }
+                    }
+
+                    & i{
+                        font-size: 26px;
+                    }
+                }
+            }
+            & .doctors{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+
+                & h1{
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 10px auto;
+                }
+
+                & .table{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap:10px;
+                justify-content: space-between;
+                background: white;
+                border-radius: 5px 5px 0 0;
+                    
+                & li{
+                    padding: 5px;
+                    width: 100%;
+                    list-style: none;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+               
+                }
+
+                & .users{
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+                    border: 1px solid gray;
+                    background: white;
+
+                    & div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 100%;
+                    padding: 5px;
+
+                    & i{
+                        margin-right: 10px;
+                    }
+                    
+                    & h4{
+                        font-size: 20px;
+                        font-weight: 400;
+                        margin: 0;
+                    }
+                   
+                    }
+                    & p{
+                        margin: 0;
+                        font-size: 20px;
+                        padding: 5px;
+                        width: 100%;
+                      
+                    }
+                }
+
+
+            }
+        }
+        & .main{
+            width: 100%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            & .crud{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+
+                & .create{
+                    display: flex;
+                    justify-content: space-between;
+
+                    & .dv{
+                        width: 100%;
+
+                        & button{
+                            padding: 3px 8px;
+                            border: none;
+                            border-radius: 5px;
+                            margin-right: 5px;
+                            color: #283779;
+                            cursor: pointer;
+                        }
+                    }
+
+                    & input{
+                        width: 100%;
+                        padding: 5px;
+                        font-size: 19px;
+                    }
+                }
+
+                & .inspector{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 10px;
+                    background: white;
+                    border-bottom: 1px solid gray;
+
+                    & div{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 5px;
+                    }
+
+                    & p{
+                        width: 100%;
+                        padding: 5px;
+                        font-size: 18px;
+                        margin: 0;
+                    }
+
+                    & h4{
+                        font-size: 24px;
+                        width: 100%;
+                        padding: 5px;
+                        margin: 0;
+                    }
+                }
+
+                & h1{
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    margin: 10px auto;
+                }
+
+                & .table{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                gap:10px;
+                justify-content: space-between;
+                border-bottom: 1px solid gray;
+                background: white;
+                border-radius: 5px 5px 0 0;
+                    
+                & li{
+                    padding: 5px;
+                    width: 100%;
+                    list-style: none;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+               
+                }
+
+                & .hospital{
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+                    border: 1px solid gray;
+                    background: white;
+                    & div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 100%;
+                    padding: 5px;
+
+                    & i{
+                        margin-right: 10px;
+                    }
+                    
+                    & input{
+                        font-size: 20px;
+                        font-weight: 400;
+                        border: none;
+                        margin: 0;
+                    }
+                   
+                    }
+                    & input{
+                        border: none;
+                        margin: 0;
+                        font-size: 20px;
+                        padding: 5px;
+                        width: 100%;
+                      
+                    }
+                }
+
+                & .doctor{
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+                    border: 1px solid gray;
+                    background: white;
+
+                    & div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 100%;
+                    padding: 5px;
+
+
+                    & input{
+                        font-size: 20px;
+                        font-weight: 400;
+                        border: none;
+                        margin: 0;
+                    }
+                   
+                    }
+                    & input{
+                        border: none;
+                        margin: 0;
+                        font-size: 20px;
+                        padding: 5px;
+                        width: 100%;
+                      
+                    }
+                }
+
+                & .message{
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+                    border: 1px solid gray;
+                    background: white;
+
+                    & div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 100%;
+                    padding: 5px;
+
+
+                    & p{
+                        font-size: 20px;
+                        width: 100%;
+                        font-weight: 400;
+                        border: none;
+                        margin: 0;
+                    }
+                   
+                    }
+                    & p{
+                        border: none;
+                        margin: 0;
+                        font-size: 20px;
+                        padding: 5px;
+                        width: 100%;
+                      
+                    }
+                }
+
+
+            }
+        }
+    }
+
+
+}
+
+.comment{
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    background: white;
+    width: 110px;
+    margin-right: 180px;
+}
+
+
+.create{
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 5px 0;
+    gap: 10px;
+    & .dv{
+       display: flex;
+       gap: 10px;
+        width: 100%;
+        & .inp{
+            font-size: 20px;
+            font-weight: 400;
+           
+            margin: 0;
+        }
+        & #number{
+            font-size: 20px;
+            font-weight: 400;
+            
+            margin: 0;
+        }
+        & .inp-d{
+            font-size: 16px;
+        }
+       
+    }
+    & .inp{
+        width: 100%;
+    }
+}
+
+
+.sidebar{
+    background-color: rgba(31, 41, 55);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:250px;
+    padding: 20px;
+    & button{
+        padding: 4px 12px;
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+    }
+    & h1{
+        font-size: 20px;
+        color: white;
+    }
+    & .routes{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        & a{
+            color: aquamarine;
+        }
+    }
+}
