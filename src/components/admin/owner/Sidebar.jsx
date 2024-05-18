@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link,NavLink } from 'react-router-dom'
+import { Context } from '../../../Context'
 
 const Sidebar = () => {
+   const { profile ,LogOut} = useContext(Context);
   return (
     <div className="sidebar">   
                  <div className="routes">
-                 <h1>Bohodir Ikromov</h1>
+                  {
+                     profile.map((el) =>{
+                        console.log(el);
+                        return(
+                           <h1>{el.full_name}</h1>
+                        )
+                     })
+                  }
                  <div>
                     <NavLink to="/owner">Dashboard</NavLink>
                  </div>
@@ -19,14 +28,11 @@ const Sidebar = () => {
                     <NavLink to="/owner/inspector">Inspector</NavLink>
                  </div>
                  <div>
-                    <NavLink to="/owner/doctor">Doctor</NavLink>
-                 </div>
-                 <div>
                     <NavLink to="/owner/messages">Messages</NavLink>
                  </div>
                  </div>
                  <div>
-                 <button>Log Out</button>
+                 <button onClick={LogOut}>Log Out</button>
                  </div>
             </div>
   )

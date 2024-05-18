@@ -1358,6 +1358,13 @@ ul {
   color: #ffb2b2 !important;
 }
 
+@media (min-width: 767px) {
+  .icons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
 .flex-center {
   align-items: center;
   justify-content: center;
@@ -1526,6 +1533,7 @@ strong {
 }
 .auth .register .inputs {
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 .auth .register .inputs label {
@@ -1578,6 +1586,33 @@ strong {
   gap: 0 20px;
   width: 100%;
 }
+.owner .cards .PhoneInput {
+  max-width: 234px;
+}
+.owner .cards .PhoneInput input {
+  padding: 5px;
+}
+.owner .cards .gender {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.owner .cards .gender div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+.owner .cards .gender div label {
+  margin: 0;
+  font-size: 20px;
+}
+.owner .cards .gender div input {
+  padding: 5px;
+  width: 40px;
+  height: 20px;
+}
 .owner .cards .dashboard {
   width: 100%;
   padding: 30px;
@@ -1589,7 +1624,8 @@ strong {
   display: flex;
   gap: 60px;
   justify-content: space-between;
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 }
 .owner .cards .dashboard .information .info {
   display: flex;
@@ -1669,16 +1705,25 @@ strong {
   width: 100%;
 }
 .owner .cards .main {
-  width: 100%;
-  padding: 30px;
+  width: 99%;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 30px;
 }
 .owner .cards .main .crud {
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 97%;
+  position: absolute;
   display: flex;
-  width: 100%;
   flex-direction: column;
+  background: white;
+  margin: 100px 0;
+  height: 500px;
+  padding: 20px;
 }
 .owner .cards .main .crud .create {
   display: flex;
@@ -1686,6 +1731,7 @@ strong {
 }
 .owner .cards .main .crud .create .dv {
   width: 100%;
+  align-items: center;
 }
 .owner .cards .main .crud .create .dv button {
   padding: 3px 8px;
@@ -1695,10 +1741,14 @@ strong {
   color: #283779;
   cursor: pointer;
 }
-.owner .cards .main .crud .create input {
+.owner .cards .main .crud .create .inp {
   width: 100%;
   padding: 5px;
   font-size: 19px;
+}
+.owner .cards .main .crud .create .inp-d {
+  width: 100%;
+  font-size: 10px;
 }
 .owner .cards .main .crud .inspector {
   display: flex;
@@ -1779,6 +1829,12 @@ strong {
   font-size: 20px;
   padding: 5px;
   width: 100%;
+}
+.owner .cards .main .crud .hospital select {
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  padding: 5px;
 }
 .owner .cards .main .crud .doctor {
   display: flex;
@@ -1868,7 +1924,8 @@ strong {
   margin: 0;
 }
 .create .dv .inp-d {
-  font-size: 16px;
+  font-size: 12px;
+  width: 10%;
 }
 .create .inp {
   width: 100%;
@@ -1907,47 +1964,48 @@ strong {
 }
 .doctor_main .cards {
   display: flex;
-  width: 95%;
+  width: 97%;
   position: relative;
 }
 .doctor_main .cards .crud {
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  width: 100%;
   position: absolute;
   display: flex;
   flex-direction: column;
   background: white;
-  margin: 200px 0;
-  height: 700px;
-  padding-right: 100px;
-  padding-left: 20px;
+  margin: 100px 0;
+  height: 500px;
+  padding: 20px;
 }
 .doctor_main .cards .main {
   width: 100%;
+  position: relative;
   padding: 30px;
   display: flex;
   flex-direction: column;
-  position: relative;
   gap: 30px;
 }
-.doctor_main .cards .main .baby {
+.doctor_main .cards .baby {
   display: flex;
 }
-.doctor_main .cards .main .baby .inp {
+.doctor_main .cards .baby .inp {
   display: flex;
   gap: 10px;
 }
-.doctor_main .cards .main .baby .inp input {
+.doctor_main .cards .baby .inp input {
   padding: 5px;
   min-width: 300px;
   font-size: 18px;
 }
-.doctor_main .cards .main .baby .btns {
+.doctor_main .cards .baby .btns {
   margin-left: 10px;
   display: flex;
   gap: 5px;
   align-items: center;
 }
-.doctor_main .cards .main .table-ch {
+.doctor_main .cards .table-ch {
   width: max-content;
   display: flex;
   gap: 10px;
@@ -1956,14 +2014,14 @@ strong {
   background: white;
   border-radius: 5px 5px 0 0;
 }
-.doctor_main .cards .main .table-ch li {
+.doctor_main .cards .table-ch li {
   padding: 5px;
   min-width: 300px;
   list-style: none;
   font-size: 20px;
   font-weight: 500;
 }
-.doctor_main .cards .main .create {
+.doctor_main .cards .create {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -1971,12 +2029,12 @@ strong {
   background: white;
   position: relative;
 }
-.doctor_main .cards .main .create .select {
+.doctor_main .cards .create .select {
   position: absolute;
   margin-left: 1860px;
   z-index: 1;
 }
-.doctor_main .cards .main .create .select button {
+.doctor_main .cards .create .select button {
   width: 100%;
   color: #283779;
   background: white;
@@ -1984,63 +2042,62 @@ strong {
   border-top: none;
   font-size: 20px;
 }
-.doctor_main .cards .main .create input {
+.doctor_main .cards .create input {
   padding: 5px;
-  min-width: 300px;
   font-size: 18px;
 }
-.doctor_main .cards .main .create .create {
+.doctor_main .cards .create .create {
   margin: 0 auto;
   display: flex;
   justify-content: center;
 }
-.doctor_main .cards .main .create .create input {
+.doctor_main .cards .create .create input {
   padding: 5px;
   min-width: 300px;
   font-size: 18px;
 }
-.doctor_main .cards .main .create .create button {
+.doctor_main .cards .create .create button {
   padding: 3px 10px;
   border: none;
   background: #283779;
   color: white;
   border-radius: 5px;
 }
-.doctor_main .cards .main .param {
+.doctor_main .cards .param {
   display: flex;
   justify-content: center;
 }
-.doctor_main .cards .main .crud-child {
+.doctor_main .cards .crud-child {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-.doctor_main .cards .main .crud-child .child {
+.doctor_main .cards .crud-child .child {
   display: flex;
   background: white;
 }
-.doctor_main .cards .main .crud-child .child .btns {
+.doctor_main .cards .crud-child .child .btns {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
-.doctor_main .cards .main .crud-child .child .btns i {
+.doctor_main .cards .crud-child .child .btns i {
   font-size: 18px;
 }
-.doctor_main .cards .main .crud-child .child .table {
+.doctor_main .cards .crud-child .child .table {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.doctor_main .cards .main .crud-child .child .table img {
+.doctor_main .cards .crud-child .child .table img {
   min-width: 100%;
 }
-.doctor_main .cards .main .crud-child .child .table .forchild {
+.doctor_main .cards .crud-child .child .table .forchild {
   display: flex;
   justify-content: space-between;
 }
-.doctor_main .cards .main .crud-child .child .table .forchild ul {
+.doctor_main .cards .crud-child .child .table .forchild ul {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2048,34 +2105,34 @@ strong {
   padding: 0;
   gap: 10px;
 }
-.doctor_main .cards .main .crud-child .child .table .forchild ul li {
+.doctor_main .cards .crud-child .child .table .forchild ul li {
   list-style: none;
   font-size: 18px;
   border: 1px solid white;
 }
-.doctor_main .cards .main .crud-child .child .table .forchild .inp {
+.doctor_main .cards .crud-child .child .table .forchild .inp {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.doctor_main .cards .main .crud-child .child .table .forchild .inp input {
+.doctor_main .cards .crud-child .child .table .forchild .inp input {
   font-size: 18px;
   border: 1px solid gray;
 }
-.doctor_main .cards .main .crud {
+.doctor_main .cards .crud {
   display: flex;
   width: 100%;
   flex-direction: column;
 }
-.doctor_main .cards .main .crud .create {
+.doctor_main .cards .crud .create {
   display: flex;
   justify-content: space-between;
 }
-.doctor_main .cards .main .crud .create .dv {
+.doctor_main .cards .crud .create .dv {
   width: 100%;
 }
-.doctor_main .cards .main .crud .create .dv button {
+.doctor_main .cards .crud .create .dv button {
   padding: 3px 8px;
   border: none;
   border-radius: 5px;
@@ -2083,12 +2140,12 @@ strong {
   color: #283779;
   cursor: pointer;
 }
-.doctor_main .cards .main .crud .create input {
+.doctor_main .cards .crud .create input {
   width: 100%;
   padding: 5px;
   font-size: 19px;
 }
-.doctor_main .cards .main .crud .inspector {
+.doctor_main .cards .crud .inspector {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2096,32 +2153,32 @@ strong {
   background: white;
   border-bottom: 1px solid gray;
 }
-.doctor_main .cards .main .crud .inspector div {
+.doctor_main .cards .crud .inspector div {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
 }
-.doctor_main .cards .main .crud .inspector p {
+.doctor_main .cards .crud .inspector p {
   width: 100%;
   padding: 5px;
   font-size: 18px;
   margin: 0;
 }
-.doctor_main .cards .main .crud .inspector h4 {
+.doctor_main .cards .crud .inspector h4 {
   font-size: 24px;
   width: 100%;
   padding: 5px;
   margin: 0;
 }
-.doctor_main .cards .main .crud h1 {
+.doctor_main .cards .crud h1 {
   display: flex;
   justify-content: center;
   width: 100%;
   margin: 10px auto;
 }
-.doctor_main .cards .main .crud .table {
+.doctor_main .cards .crud .table {
   margin: 0;
   padding: 0;
   display: flex;
@@ -2131,97 +2188,97 @@ strong {
   background: white;
   border-radius: 5px 5px 0 0;
 }
-.doctor_main .cards .main .crud .table li {
+.doctor_main .cards .crud .table li {
   padding: 5px;
   width: 100%;
   list-style: none;
   font-size: 20px;
   font-weight: 500;
 }
-.doctor_main .cards .main .crud .hospital {
+.doctor_main .cards .crud .hospital {
   display: flex;
   gap: 10px;
   justify-content: space-between;
   border: 1px solid gray;
   background: white;
 }
-.doctor_main .cards .main .crud .hospital select {
+.doctor_main .cards .crud .hospital select {
   width: 100%;
   padding: 5px;
   border: none;
 }
-.doctor_main .cards .main .crud .hospital div {
+.doctor_main .cards .crud .hospital div {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding: 5px;
 }
-.doctor_main .cards .main .crud .hospital div i {
+.doctor_main .cards .crud .hospital div i {
   margin-right: 10px;
 }
-.doctor_main .cards .main .crud .hospital div input {
+.doctor_main .cards .crud .hospital div input {
   font-size: 20px;
   font-weight: 400;
   border: none;
   margin: 0;
 }
-.doctor_main .cards .main .crud .hospital input {
+.doctor_main .cards .crud .hospital input {
   border: none;
   margin: 0;
   font-size: 20px;
   padding: 5px;
   width: 100%;
 }
-.doctor_main .cards .main .crud .doctor {
+.doctor_main .cards .crud .doctor {
   display: flex;
   gap: 10px;
   justify-content: space-between;
   border: 1px solid gray;
   background: white;
 }
-.doctor_main .cards .main .crud .doctor div {
+.doctor_main .cards .crud .doctor div {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding: 5px;
 }
-.doctor_main .cards .main .crud .doctor div input {
+.doctor_main .cards .crud .doctor div input {
   font-size: 20px;
   font-weight: 400;
   border: none;
   margin: 0;
 }
-.doctor_main .cards .main .crud .doctor input {
+.doctor_main .cards .crud .doctor input {
   border: none;
   margin: 0;
   font-size: 20px;
   padding: 5px;
   width: 100%;
 }
-.doctor_main .cards .main .crud .message {
+.doctor_main .cards .crud .message {
   display: flex;
   gap: 10px;
   justify-content: space-between;
   border: 1px solid gray;
   background: white;
 }
-.doctor_main .cards .main .crud .message div {
+.doctor_main .cards .crud .message div {
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
   padding: 5px;
 }
-.doctor_main .cards .main .crud .message div p {
+.doctor_main .cards .crud .message div p {
   font-size: 20px;
   width: 100%;
   font-weight: 400;
   border: none;
   margin: 0;
 }
-.doctor_main .cards .main .crud .message p {
+.doctor_main .cards .crud .message p {
   border: none;
   margin: 0;
   font-size: 20px;

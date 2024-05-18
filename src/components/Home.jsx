@@ -64,50 +64,50 @@ const Home = () => {
 </section>
 
 
-<section className="py-0">
+<section>
 
 <div className="container">
-  <div className="py-5 align-items-center justify-content-center justify-content-lg-evenly" style={{display:"flex",justifyContent:"space-between"}}> 
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img2} alt="..." /><img className="mb-3 deparment-icon-hover" src={img2} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">Neurology</p>
-          </Link></div>
+  <div className="icons"> 
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img3} alt="..." /><img className="mb-3 deparment-icon-hover" src={img3} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">Eye care</p>
-          </Link></div>
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img4} alt="..." /><img className="mb-3 deparment-icon-hover" src={img4} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">Cardiac care</p>
-          </Link></div>
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img5} alt="..." /><img className="mb-3 deparment-icon-hover" src={img5} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">Heart care</p>
-          </Link></div>
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img6} alt="..." /><img className="mb-3 deparment-icon-hover" src={img6} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">Osteoporosis</p>
-          </Link></div>
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
-    <div className="col-auto col-md-4 col-lg-auto text-xl-start">
-      <div className="d-flex flex-column align-items-center">
-        <div className="icon-box text-center"><Link className="text-decoration-none" href="#!"><img className="mb-3 deparment-icon" src={img7} alt="..." /><img className="mb-3 deparment-icon-hover" src={img7} alt="..." />
-            <p className="fs-1 fs-xxl-2 text-center">ENT</p>
-          </Link></div>
+    <div className="icon">
+      <div >
+      <img className="mb-3 deparment-icon" src={img2} alt="..." />
+            <p>Neurology</p>
+         
       </div>
     </div>
   </div>
@@ -490,75 +490,7 @@ const Home = () => {
 </section>
 
 
-<section style={{margin:"100px 0"}}>
-<div className="bg-holder" style={{backgroundImage:`url(${dot})`,backgroundPosition:"center",backgroundSize:"cover"}}></div>
-        
 
-        <div className="container">
-          <div className="" style={{display:"flex",justifyContent:"space-between",gap:"20px"}}>
-            <div className="col-sm-6 col-lg-3 mb-4">
-              <div className="card h-100 shadow card-span rounded-3"><img className="card-img-top rounded-top-3" src={img14} alt="news" />
-                <div className="card-body"><span className="fs--1 text-primary me-3">Health</span>
-                  <svg className="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
-                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
-                  </svg><span className="fs--1 text-900">Nov 21, 2021</span><span className="fs--1"></span>
-                  <h5 className="font-base fs-lg-0 fs-xl-1 my-3">COVID-19: The Most Up-to-Date Information</h5><Link className="stretched-link" href="#!">read full article</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-3 mb-4">
-              <div className="card h-100 shadow card-span rounded-3"><img className="card-img-top rounded-top-3" src={img15} alt="news" />
-                <div className="card-body"><span className="fs--1 text-primary me-3">Lifestyle</span>
-                  <svg className="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
-                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
-                  </svg><span className="fs--1 text-900">Nov 25, 2021</span><span className="fs--1"></span>
-                  <h5 className="font-base fs-lg-0 fs-xl-1 my-3">Importance of Accreditation for Laboratories</h5><Link className="stretched-link" href="#!">read full article</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-3 mb-4">
-              <div className="card h-100 shadow card-span rounded-3"><img className="card-img-top rounded-top-3" src={img16} alt="news" />
-                <div className="card-body"><span className="fs--1 text-primary me-3">Health</span>
-                  <svg className="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
-                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
-                  </svg><span className="fs--1 text-900">Nov 28, 2021</span><span className="fs--1"></span>
-                  <h5 className="font-base fs-lg-0 fs-xl-1 my-3">The dangers of nicotine are addressed in depth</h5><Link className="stretched-link" href="#!">read full article</Link>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-lg-3 mb-4">
-              <div className="card h-100 shadow card-span rounded-3"><img className="card-img-top rounded-top-3" src={img17} alt="news" />
-                <div className="card-body"><span className="fs--1 text-primary me-3">Health</span>
-                  <svg className="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"></path>
-                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"> </path>
-                  </svg><span className="fs--1 text-900">Nov 30, 2021</span><span className="fs--1"></span>
-                  <h5 className="font-base fs-lg-0 fs-xl-1 my-3">Treatment of patients with diabetes during COVID-19</h5><Link className="stretched-link" href="#!">read full article</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </section>
     <Footer/>
     </div>
   )

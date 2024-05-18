@@ -5,8 +5,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Owner from './components/admin/owner/Owner'
 import Hospital from './components/admin/owner/Hospital'
-import Inspector from './components/admin/inspector/Inspector'
-import Doctor from './components/admin/owner/Doctor'
+import Inspector from './components/admin/owner/Inspector'
 import Messages from './components/admin/owner/Messages'
 import DoctorDashboard from './components/admin/doctor/DoctorDashboard'
 import Mothers from './components/admin/doctor/Mothers'
@@ -27,7 +26,6 @@ const App = () => {
           <Route path='/owner' element={<Owner/>}/>
           <Route path='/owner/hospital' element={<Hospital/>}/>
           <Route path='/owner/inspector' element={<Inspector/>}/>
-          <Route path='/owner/doctor' element={<Doctor/>}/>
           <Route path='/owner/messages' element={<Messages/>}/>
           <Route path='/doctor' element={<DoctorDashboard/>}/>
           <Route path='/doctor/mothers' element={<Mothers/>}/>

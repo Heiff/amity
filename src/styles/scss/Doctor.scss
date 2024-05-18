@@ -2,26 +2,29 @@
     background:rgb(228, 227, 227);
     & .cards{
         display: flex;
-        width: 95%;
+        width: 97%;
         position: relative;
         & .crud{
-            overflow: scroll;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            width: 100%;
             position: absolute;
             display: flex;
             flex-direction: column;
             background: white;
-            margin:200px 0;
-            height: 700px;
-            padding-right: 100px;
-            padding-left: 20px;
+            margin:100px 0;
+            height: 500px;
+            padding: 20px;
+            
         }
         & .main{
             width: 100%;
+            position: relative;
             padding: 30px;
             display: flex;
             flex-direction: column;
-            position: relative;
             gap: 30px;
+        }
            & .baby{
             display: flex;
 
@@ -90,7 +93,6 @@
                
                 & input{
                     padding: 5px;
-                    min-width: 300px;
                     font-size: 18px;
                 }
                 
@@ -387,7 +389,6 @@
     }
 
 
-}
 
 
 
