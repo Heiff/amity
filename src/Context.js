@@ -49,9 +49,13 @@ const ContextProvider = ({children})=>{
    const [attendence,setAttendence] = useState();
    const [vaccination,setVaccination] = useState();
    const [patient,setPatient] = useState([]);
+   const [hospitalId,setHospitalId] = useState();
+   const [message,setMessage] = useState()
    const [baby,setBaby] = useState([]);
+   const [oneBaby,setOneBaby] = useState([]);
    const [motherPatient,setMotherPatient] = useState([]);
    const [motherChildren,setMotherChildren] = useState([]);
+   const [allHospitals,setAllHospitals] = useState([])
 
    
    const navigate = useNavigate();
@@ -63,7 +67,22 @@ const ContextProvider = ({children})=>{
   
 
 
-    console.log(hospitals);
+    const Mother_GetAllHospitals = async() => {
+        try {
+           
+                await axios.get(`${api}/api/hospitals`,{headers:{token}}).then((res) => {
+                    setAllHospitals(res.data)
+                })
+            
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+        Mother_GetAllHospitals()
+    },[])
+   
     const Login = async(e) => {
         e.preventDefault()
         try {
@@ -85,11 +104,11 @@ const ContextProvider = ({children})=>{
 
     const Owner_GetAllDoctor = async() => {
         try {
-            if (who == "owner") {
+           
                 await axios.get(`${api}/api/doctors`,{headers:{token}}).then((res) => {
                     setDoctors(res.data.Doctors)
                 })
-            }
+        
         } catch (error) {
             console.log(error);
         }
@@ -102,11 +121,11 @@ const ContextProvider = ({children})=>{
    
     const Profile = async() =>{
         try {
-           if (who == "owner") {
+          
             await axios.get(`${api}/api/owner/profile`,{headers:{token}}).then(res => {
                 setProfile(res.data)
             })
-           }
+           
         } catch (error) {
             console.log(error);
         }
@@ -175,11 +194,11 @@ const ContextProvider = ({children})=>{
 
     const Owner_GetAllHospital = async() => {
         try {
-            if (who == "owner") {
+            
                 await axios.get(`${api}/api/hospital`,{headers:{token}}).then((res) => {
                     setHospitals(res.data)
                 })
-            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -320,12 +339,12 @@ const ContextProvider = ({children})=>{
 
     const Doctor_GetAllMother = async() => {
         try {
-            if (who == "doctor") {
+           
                 await axios.get(`${api}/api/mother`,{headers:{token}}).then((res) => {
                     console.log(res);
                     setMothers(res.data)
                 })
-            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -392,12 +411,12 @@ const ContextProvider = ({children})=>{
     
     const Doctor_GetAllPatient = async() => {
         try {
-           if (who == "doctor") {
+          
             await axios.get(`${api}/api/doctor/getAllControls`,{headers:{token}}).then((res) => {
                 console.log(res);
                 setPatient(res.data)
             })
-           }
+          
         } catch (error) {
             console.log(error);
         }
@@ -464,12 +483,12 @@ const ContextProvider = ({children})=>{
 
     const Doctor_GetAllChildren = async() => {
         try {
-            if (who == "doctor") {
+            
                 await axios.get(`${api}/api/doctor/get/babies`,{headers:{token}}).then((res) => {
                     console.log(res);
                     setBaby(res.data)
                 })
-            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -557,11 +576,11 @@ const ContextProvider = ({children})=>{
     
     const Doctor_GetAllVaccination = async() => {
         try {
-            if (who == "doctor") {
+            
                 await axios.get(`${api}/api/vaccinations`,{headers:{token}}).then((res) => {
                     setVaccination(res.data)
                 }) 
-            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -637,9 +656,9 @@ const ContextProvider = ({children})=>{
     
     const Mother_GetAllPatient = async() => {
         try {
-            if (who == "mother") {
-                
-            }
+            await axios.get(`${api}/api/mother/getControls`,{headers:{token}}).then((res) => {
+                setMotherPatient(res.data)
+            })
         } catch (error) {
             console.log(error);
         }
@@ -652,12 +671,12 @@ const ContextProvider = ({children})=>{
 
     const Mother_GetAllChildren = async() => {
         try {
-            if (who == "mother") {
+           
                 await axios.get(`${api}/api/mother/get/babies`,{headers:{token}}).then((res) => {
                     console.log(res);
                     setMotherChildren(res.data)
                 })
-            }
+            
         } catch (error) {
             console.log(error);
         }
@@ -666,6 +685,16 @@ const ContextProvider = ({children})=>{
     useEffect(() => {
         Mother_GetAllChildren()
     },[])
+    
+
+    const Mother_CreateMessage = async() => {
+        try {
+            await axios.post(`${api}`,{name,phone_number,email,message,hospitalId})
+        } catch (error) {
+            
+        }
+    }
+
     
    
 
@@ -705,7 +734,7 @@ const ContextProvider = ({children})=>{
         Doctor_CreatePatient,Doctor_DeletePatient,Doctor_UpdatePatient,setMotherId,motherId,patient,
         setBirthDate,setBirthCertificate,setIllness,setHeight,setWeight,setIllnesDesc,Doctor_CreateChildren,baby,
         Doctor_DeleteChildren,Doctor_UpdateChildren,setStatus,setBabyId,Doctor_CreateVaccination,Doctor_DeleteVaccination,Doctor_UpdateVaccination,
-        motherPatient,motherChildren,vaccination,navigate
+        motherPatient,motherChildren,vaccination,navigate,allHospitals,setMessage,setHospitalId,Mother_CreateMessage,api,oneBaby,setOneBaby
         }}>
             {children}
         </Context.Provider>

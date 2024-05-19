@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import img from "./assets/img/gallery/hero.png"
 import img2 from "./assets/img/icons/neurology.png"
 import img3 from "./assets/img/icons/eye-care.png"
@@ -29,9 +29,11 @@ import dot from "./assets/img/gallery/dot-bg.png"
 import { Link } from 'react-router-dom'
 import Navbar from './main/Navbar'
 import Footer from './main/Footer'
+import { Context } from '../Context'
 
 
 const Home = () => {
+  const { allHospitals,setName,setNumber,setEmail,setMessage,setHospitalId,Mother_CreateMessage } = useContext(Context);
   return (
     <div>
       <Navbar/>
@@ -439,32 +441,36 @@ const Home = () => {
               <form className="gr g-3">
                 <div className="col-md-6 tt" >
                   <label className="visually-hidden" htmlFor="inputName">Name</label>
-                  <input className="form-control form-livedoc-control" id="inputName" type="text" placeholder="Name" />
+                  <input className="form-control form-livedoc-control" id="inputName" type="text" onChange={(e) => {setName(e.target.value)}} placeholder="Name" />
                 </div>
                 <div className="col-md-6 tt">
                   <label className="visually-hidden" htmlFor="inputPhone">Phone</label>
-                  <input className="form-control form-livedoc-control" id="inputPhone" type="text" placeholder="Phone" />
+                  <input className="form-control form-livedoc-control" id="inputPhone" type="text"  onChange={(e) => {setNumber(e.target.value)}}  placeholder="Phone" />
                 </div>
                 <div className="col-md-6 tt">
                   <label className="form-label visually-hidden" htmlFor="inputCategory">Category</label>
-                  <select className="form-select" id="inputCategory">
-                    <option >Category</option>
-                    <option> Category One</option>
-                    <option> Category Two</option>
-                    <option> Category Three</option>
+                  <select className="form-select" onChange={(e) => {setHospitalId(e.target.value)}} id="inputCategory">
+                    <option >none</option>
+                    {
+                      allHospitals.map((el) => {
+                        return(
+                          <option value={el.id}>{el.name}</option>
+                        )
+                      })
+                    }
                   </select>
                 </div>
                 <div className="col-md-6 tt">
                   <label className="form-label visually-hidden" htmlFor="inputEmail">Email</label>
-                  <input className="form-control form-livedoc-control" id="inputEmail" type="email" placeholder="Email" />
+                  <input className="form-control form-livedoc-control" id="inputEmail" onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" />
                 </div>
                 <div className="col-md-12">
                   <label className="form-label visually-hidden" htmlFor="validationTextarea">Message</label>
-                  <textarea className="form-control form-livedoc-control" id="validationTextarea" placeholder="Message" style={{height:"250px"}} required="required"></textarea>
+                  <textarea className="form-control form-livedoc-control" id="validationTextarea" onChange={(e) => {setMessage(e.target.value)}} placeholder="Message" style={{height:"250px"}} required="required"></textarea>
                 </div>
                 <div className="col-12">
                   <div className="d-grid">
-                    <button className="btn btn-primary rounded-pill" type="submit">Sign in</button>
+                    <button className="btn btn-primary rounded-pill" onClick={Mother_CreateMessage} type="submit">Send</button>
                   </div>
                 </div>
               </form>

@@ -74,7 +74,7 @@ const Mother = () => {
                           </ul>
                           <div className="table">
                           <p>{el.name}</p>
-                          <Link> view image </Link>
+                          <Link to="/">View Image</Link>
                           <p>{el.date.slice(0,10)}</p>
                           <p>{el.next_date.slice(0,10)}</p>
                           <p>{el.next_date_attendance === true ? "true" : "false"}</p>

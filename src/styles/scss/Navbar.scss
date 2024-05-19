@@ -4,6 +4,16 @@
         justify-content: space-between;
         padding: 10px 20px;
         align-items: center;
+
+        & h2{
+            font-size: 14px;
+
+        }
+        & .logo{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
         & img{
             width: 40px;
             height: 40px;
@@ -18,7 +28,7 @@
                 color: #283779;
                 list-style: none;
                 text-decoration: none;
-                font-size: 14px;
+                font-size: 14px; 
             }
     
             & div{

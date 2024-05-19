@@ -15,6 +15,9 @@ import Vaccination from './components/admin/doctor/Vaccination'
 import Mother from './components/admin/mother/Mother'
 import Doctors from './components/admin/inspector/Doctors'
 import MothersI from './components/admin/inspector/MothersI'
+import OneChild from './components/admin/mother/OneChild'
+import Queue from './components/admin/mother/Queue'
+
 
 const App = () => {
   return (
@@ -36,7 +39,8 @@ const App = () => {
           <Route path='/inspector' element={<Inspector/>}/> 
           <Route path='/inspector/doctors' element={<Doctors/>}/> 
           <Route path='/inspector/mothers' element={<MothersI/>}/>
-     
+          <Route path='/mother/child/:id' element={<OneChild/>}/>
+          <Route path='/queue' element={<Queue/>}/>
       </Routes>
     </div>
   )
