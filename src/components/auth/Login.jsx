@@ -3,12 +3,15 @@ import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import { Context } from '../../Context'
 import { Link } from 'react-router-dom'
+import img from '../assets/login.png'
 
 const Login = () => {
     const { setPassword,setNumber,Login,number } = useContext(Context);
   return (
     <div className='auth'>
         <div className='container'>
+        <div className="forlogin">
+        <img className='img' src={img} alt="" />
             <div className="login">
             <h1>Welcome!</h1>
             <h3>Today will be great..</h3>
@@ -21,13 +24,15 @@ const Login = () => {
             <input type="checkbox" id='checkbox'/>
             <label htmlFor="checkbox">remember me</label>
             </div>
-            <div className="route">
-              <Link to="/register">Register</Link>
-            </div>
+            
             <div className="btn">
             <button onClick={Login} type='button'> Login</button>
             </div>
+            <div className="route">
+              <Link to="/register">Register</Link>
             </div>
+            </div>
+        </div>
         </div>
     </div>
   )

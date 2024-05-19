@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../../Context'
 import PhoneInput from 'react-phone-number-input';
+import img from "../assets/login.png"
 
 const Register = () => {
     const { setPassword,setNumber,Reg,phone_number,setFullName,
@@ -11,6 +12,10 @@ const Register = () => {
   return (
     <div className='auth'>
         <div className='container'>
+          <div className="forlogin">
+
+         
+          <img className='img' src={img} alt="" />
             <div className="register">
             <h1>Welcome!</h1>
             <h3>Today will be great..</h3>
@@ -75,6 +80,7 @@ const Register = () => {
             
             <div className='btn'>
             <button onClick={Reg} type="submit"> Register</button>
+            </div>
             </div>
             </div>
         </div>

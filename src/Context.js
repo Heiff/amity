@@ -1,6 +1,7 @@
 import axios from "axios";
 import React,{createContext, useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom/dist";
 
 
 const Context = createContext();
@@ -13,6 +14,8 @@ const ContextProvider = ({children})=>{
    const [nationality,setNotionality] = useState();
    const [JSHSHR,setJshshr] = useState();
    const [sertificate,setSertificate] = useState();
+   const [status,setStatus] = useState();
+   const [baby_id,setBabyId] = useState();
    const [date,setDate] = useState();
    const [email,setEmail] = useState();
    const [address,setAddress] = useState();
@@ -25,23 +28,38 @@ const ContextProvider = ({children})=>{
    const [blood_group,setBlood] = useState();
    const [hospitalAddres,setHospitalAddress] = useState();
    const [hospitalEmail,setHospitalEmail] = useState();
+   const [name,setName] = useState();
    const [is_positive,setIsPositive] = useState();
    const [hospitals,setHospitals] = useState([]);
    const [doctors,setDoctors] = useState([]);
    const [inspectors,setInspectors] = useState([]);
+   const [birth_certificate_id,setBirthCertificate] = useState();
+   const [birth_date,setBirthDate] = useState();
+   const [illness,setIllness] = useState();
+   const [height,setHeight] = useState();
+   const [weight,setWeight] = useState();
+   const [illness_desc,setIllnesDesc] = useState();
    const [profile,setProfile] = useState([]);
    const [mothers,setMothers] = useState([]);
    const [comment,setComment] = useState();
    const [img_emb,setImageEmb] = useState(null)
    const [babyStatus,setBabyStatus] = useState();
    const [nextDate,setNextDate] = useState();
+   const [motherId,setMotherId] = useState();
+   const [attendence,setAttendence] = useState();
+   const [vaccination,setVaccination] = useState();
+   const [patient,setPatient] = useState([]);
+   const [baby,setBaby] = useState([]);
+   const [motherPatient,setMotherPatient] = useState([]);
+   const [motherChildren,setMotherChildren] = useState([]);
+
    
    const navigate = useNavigate();
    const api = "http://localhost:8080"
    const token = localStorage.getItem("token");
    
   
-
+    const who = localStorage.getItem("navigate");
   
 
 
@@ -54,8 +72,9 @@ const ContextProvider = ({children})=>{
             }}).then((res) =>{
                 if (res.status === 200) {
                     localStorage.setItem("token",res.data.token);
+                    localStorage.setItem("navigate",res.data.message)
                     navigate(`/${res.data.message}`)
-                   
+                    window.location.reload(true)
                 }
                 console.log(res);
             })
@@ -66,24 +85,28 @@ const ContextProvider = ({children})=>{
 
     const Owner_GetAllDoctor = async() => {
         try {
-            await axios.get(`${api}/api/doctors`,{headers:{token}}).then((res) => {
-                setDoctors(res.data.Doctors)
-            })
+            if (who == "owner") {
+                await axios.get(`${api}/api/doctors`,{headers:{token}}).then((res) => {
+                    setDoctors(res.data.Doctors)
+                })
+            }
         } catch (error) {
             console.log(error);
         }
     }
 
     useEffect(() => {
-      Owner_GetAllDoctor()
+      Owner_GetAllDoctor();
     }, [])
 
    
     const Profile = async() =>{
         try {
+           if (who == "owner") {
             await axios.get(`${api}/api/owner/profile`,{headers:{token}}).then(res => {
                 setProfile(res.data)
             })
+           }
         } catch (error) {
             console.log(error);
         }
@@ -152,10 +175,11 @@ const ContextProvider = ({children})=>{
 
     const Owner_GetAllHospital = async() => {
         try {
-            await axios.get(`${api}/api/hospital`,{headers:{token}}).then((res) => {
-                console.log(res.data);
-                setHospitals(res.data)
-            })
+            if (who == "owner") {
+                await axios.get(`${api}/api/hospital`,{headers:{token}}).then((res) => {
+                    setHospitals(res.data)
+                })
+            }
         } catch (error) {
             console.log(error);
         }
@@ -220,10 +244,9 @@ const ContextProvider = ({children})=>{
 
     const Owner_GetAllInspector = async() => {
         try {
-            await axios.get(`${api}/api/inspectors`,{headers:{token}}).then((res) => {
-                console.log(res);
-                setInspectors(res.data)
-            })
+            if (who == "owner") {
+                
+            }
         } catch (error) {
             console.log(error);
         }
@@ -297,24 +320,36 @@ const ContextProvider = ({children})=>{
 
     const Doctor_GetAllMother = async() => {
         try {
-            await axios.get(`${api}/api/mother`,{headers:{token}}).then((res) => {
-                setMothers(res.data)
-            })
+            if (who == "doctor") {
+                await axios.get(`${api}/api/mother`,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    setMothers(res.data)
+                })
+            }
         } catch (error) {
             console.log(error);
         }
     }
 
-    // useEffect(() => {
-    //   Owner_GetAllMother()
-    // }, [])
+    useEffect(() => {
+      Doctor_GetAllMother()
+    }, [])
     
    
 
     const Doctor_CreateMother = async(e) =>{
         e.preventDefault();
+        const form = new FormData()
+        form.append('image',image)
+        form.append('full_name',full_name)
+        form.append('blood_group',blood_group)
+        form.append('is_positive',is_positive)
+        form.append('email',email)
+        form.append('phone_number',phone_number)
+        form.append('password',password)
             try {
-                await axios.post(`${api}/api/mother`,{full_name,blood_group,is_positive,phone_number,password,email},{headers:{token}}).then((res) => {
+                await axios.post(`${api}/api/mother`,form,{headers:{token}}).then((res) => {
+                    console.log(res);
                     if (res.status === 201) {
                         setMothers(res.data)
                         window.location.reload(true)
@@ -328,7 +363,7 @@ const ContextProvider = ({children})=>{
     const Doctor_UpdateMother = async(e,id) =>{
         e.preventDefault()
         try {
-            await axios.put(`${api}/api/mother/${id}`,{full_name,blood_group,is_positive,phone_number,password,email},{headers:{token}}).then((res) =>{
+            await axios.put(`${api}/api/doctor/updateMother/${id}`,{full_name,blood_group,is_positive,phone_number,password,email,image},{headers:{token}}).then((res) =>{
                 if (res.status === 200) {
                     console.log(res);
                     setOpen(false);
@@ -353,10 +388,284 @@ const ContextProvider = ({children})=>{
         }
     }
     
+
+    
+    const Doctor_GetAllPatient = async() => {
+        try {
+           if (who == "doctor") {
+            await axios.get(`${api}/api/doctor/getAllControls`,{headers:{token}}).then((res) => {
+                console.log(res);
+                setPatient(res.data)
+            })
+           }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+      Doctor_GetAllPatient()
+    }, [])
+    
+   
+
+    const Doctor_CreatePatient = async(e) =>{
+        e.preventDefault();
+        const form = new FormData()
+        form.append('image_emb',img_emb)
+        form.append('name',name)
+        form.append('date',date)
+        form.append('comment',comment)
+        form.append('baby_status',babyStatus)
+        form.append('next_date',nextDate)
+        form.append('mother_id',motherId)
+        form.append('next_date_attendance',false)
+            try {
+                await axios.post(`${api}/api/doctor/createControl`,form,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    if (res.status === 201) {
+                        setMothers(res.data)
+                        window.location.reload(true)
+                    }
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    const Doctor_UpdatePatient = async(e,id) =>{
+        e.preventDefault()
+        try {
+            await axios.put(`${api}/api/doctor/updControlAttendance/${id}`,{},{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    console.log(res);
+                    setOpen(false);
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            
+        }
+    }
+
+    const Doctor_DeletePatient = async(e,id) =>{
+        e.preventDefault()
+        try {
+            await axios.delete(`${api}/api/mother/${id}`,{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    const Doctor_GetAllChildren = async() => {
+        try {
+            if (who == "doctor") {
+                await axios.get(`${api}/api/doctor/get/babies`,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    setBaby(res.data)
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+      Doctor_GetAllChildren()
+    }, [])
+    
+   
+
+    const Doctor_CreateChildren = async(e) =>{
+        e.preventDefault();
+        const data = {full_name,
+            birth_date,
+            birth_certificate_id,
+            address,
+            blood_group,
+            is_positive,
+            illness,
+            height,
+            weight,
+            illness_desc,
+            comment,
+            gender,
+            mother_id:motherId}
+            try {
+                await axios.post(`${api}/api/doctor/create/baby`,data,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    if (res.status === 201) {
+                        setMothers(res.data)
+                        window.location.reload(true)
+                    }
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    const Doctor_UpdateChildren = async(e,id) =>{
+        e.preventDefault()
+        const data = {
+            full_name,
+            birth_date,
+            birth_certificate_id,
+            address,
+            blood_group,
+            is_positive,
+            illness,
+            height,
+            weight,
+            illness_desc,
+            comment,
+            gender
+        }
+        try {
+            await axios.put(`${api}/api/doctor/update/baby/${id}`,data,{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    console.log(res);
+                    setOpen(false);
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            
+        }
+    }
+
+    const Doctor_DeleteChildren = async(e,id) =>{
+        e.preventDefault()
+        try {
+            await axios.delete(`${api}/api/mother/${id}`,{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
+
+    
+    const Doctor_GetAllVaccination = async() => {
+        try {
+            if (who == "doctor") {
+                await axios.get(`${api}/api/vaccinations`,{headers:{token}}).then((res) => {
+                    setVaccination(res.data)
+                }) 
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+      Doctor_GetAllVaccination()
+    }, [])
+    
+   
+
+    const Doctor_CreateVaccination = async(e) =>{
+        e.preventDefault();
+        const data = { name, status, comment, date, baby_id, mother_id:motherId }
+            try {
+                await axios.post(`${api}/api/doctor/vaccination`,data,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    if (res.status === 201) {
+                        window.location.reload(true)
+                    }
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+    const Doctor_UpdateVaccination = async(e,id) =>{
+        e.preventDefault()
+        const data = {
+            full_name,
+            birth_date,
+            birth_certificate_id,
+            address,
+            blood_group,
+            is_positive,
+            illness,
+            height,
+            weight,
+            illness_desc,
+            comment,
+            gender
+        }
+        try {
+            await axios.put(`${api}/api/doctor/update/baby/${id}`,data,{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    console.log(res);
+                    setOpen(false);
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            
+        }
+    }
+
+    const Doctor_DeleteVaccination = async(e,id) =>{
+        e.preventDefault()
+        try {
+            await axios.delete(`${api}/api/doctor/vaccinations/delete/${id}`,{headers:{token}}).then((res) =>{
+                if (res.status === 200) {
+                    window.location.reload(true)
+                }
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    
+    
     
   
 
     
+    const Mother_GetAllPatient = async() => {
+        try {
+            if (who == "mother") {
+                
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        Mother_GetAllPatient()
+    },[])
+
+
+    const Mother_GetAllChildren = async() => {
+        try {
+            if (who == "mother") {
+                await axios.get(`${api}/api/mother/get/babies`,{headers:{token}}).then((res) => {
+                    console.log(res);
+                    setMotherChildren(res.data)
+                })
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        Mother_GetAllChildren()
+    },[])
     
    
 
@@ -391,7 +700,12 @@ const ContextProvider = ({children})=>{
         setDate,setAddress,LogOut,setPassport,setProfession,open,setOpen,phone_number,setImage,
         Owner_CreateHospital,Owner_DeleteHospital,Owner_UpdateHospital,setHospitalAddress,setHospitalEmail,
         setHospitalName,setHospitalType,hospitals,doctors,Owner_CreateInspector,inspectors,profile,setBlood,mothers,
-        Doctor_CreateMother,Doctor_DeleteMother,Doctor_GetAllMother,Doctor_UpdateMother
+        setName,setComment,setImageEmb,setBabyStatus,setNextDate,setAttendence,
+        Doctor_CreateMother,Doctor_DeleteMother,Doctor_GetAllMother,Doctor_UpdateMother,setIsPositive,
+        Doctor_CreatePatient,Doctor_DeletePatient,Doctor_UpdatePatient,setMotherId,motherId,patient,
+        setBirthDate,setBirthCertificate,setIllness,setHeight,setWeight,setIllnesDesc,Doctor_CreateChildren,baby,
+        Doctor_DeleteChildren,Doctor_UpdateChildren,setStatus,setBabyId,Doctor_CreateVaccination,Doctor_DeleteVaccination,Doctor_UpdateVaccination,
+        motherPatient,motherChildren,vaccination,navigate
         }}>
             {children}
         </Context.Provider>

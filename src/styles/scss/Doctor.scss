@@ -15,6 +15,7 @@
             margin:100px 0;
             height: 500px;
             padding: 20px;
+
             
         }
         & .main{
@@ -31,6 +32,27 @@
             & .inp{
                 display: flex;
                 gap: 10px;
+                margin-top: 10px;
+                & .select{
+                    position: absolute;
+                    margin-left: 1860px;
+                    z-index: 99;
+    
+                    & button{
+                        width: 100%;
+                        color: #283779;
+                        background: white;
+                        border-bottom:1px solid gray ;
+                        border-top:none ;
+                        
+                        font-size: 20px;
+    
+                    }
+                   }
+
+                & .dv{
+                    width: 100%;
+                }
 
                 & input{
                     padding: 5px;
@@ -40,7 +62,6 @@
             }
 
             & .btns{
-                margin-left: 10px;
                 display: flex;
                 gap: 5px;
                 align-items: center;
@@ -52,9 +73,9 @@
                 gap:10px;
                 margin: 0;
                 padding: 0;
-             
                 background: white;
                 border-radius: 5px 5px 0 0;
+               
                     
                 & li{
                     padding: 5px;
@@ -74,22 +95,7 @@
                background: white;
                position: relative;
 
-               & .select{
-                position: absolute;
-                margin-left: 1860px;
-                z-index: 1;
-
-                & button{
-                    width: 100%;
-                    color: #283779;
-                    background: white;
-                    border-bottom:1px solid gray ;
-                    border-top:none ;
-                    
-                    font-size: 20px;
-
-                }
-               }
+              
                
                 & input{
                     padding: 5px;
@@ -210,8 +216,11 @@
                             cursor: pointer;
                         }
                     }
-
-                    & input{
+                    & .inp-d{
+                        width: 100%;
+                        font-size: 12px;
+                    }
+                    & .inp{
                         width: 100%;
                         padding: 5px;
                         font-size: 19px;
@@ -282,36 +291,50 @@
                     justify-content: space-between;
                     border: 1px solid gray;
                     background: white;
-                    & select{
-                        width: 100%;
-                        padding: 5px;
-                        border: none;
+
+                    & .profile_img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
                     }
-                    & div{
+
+                    & .dv{
+                        width: 100%;
+
+                        & .inp-ch{
+                            width: 40px;
+                            height: 20px;
+                            margin: auto 0;
+                        }
+                    }
+                   
+                    & .dv{
                     display: flex;
                     align-items: center;
                     gap: 10px;
                     width: 100%;
                     padding: 5px;
+                    }
 
-                    & i{
-                        margin-right: 10px;
+                    & .inp-d{
+                    width: 100%;
+                    font-size: 12px;
                     }
                     
-                    & input{
+                    & .inp{
                         font-size: 20px;
                         font-weight: 400;
                         border: none;
                         margin: 0;
                     }
                    
-                    }
                     & input{
                         border: none;
                         margin: 0;
                         font-size: 20px;
                         padding: 5px;
                         width: 100%;
+                    }
                       
                     }
                 }
@@ -386,7 +409,7 @@
 
             }
         }
-    }
+  
 
 
 
@@ -396,36 +419,144 @@
     display: flex;
     justify-content: space-between;
     background: white;
+    width: 100%;
     padding: 5px 0;
     gap: 10px;
     & select{
         width: 100%;
-        padding: 5px;
-        font-size: 20px;
+        font-size: 19px;
+    }
+   
+    & .inp-ch{
+        width: 40px;
+        height: 20px;
+        margin: auto 0;
     }
     & .dv{
        display: flex;
        gap: 10px;
-        width: 100%;
+       width: 100%;
         & .inp{
             font-size: 20px;
             font-weight: 400;
-           
+            width: 100%;
             margin: 0;
         }
         & #number{
+            width: 100%;
             font-size: 20px;
             font-weight: 400;
             
             margin: 0;
         }
         & .inp-d{
-            font-size: 16px;
+        width: 100%;
+        font-size: 12px;
         }
        
     }
     & .inp{
         width: 100%;
+    }
+}
+
+.doctor_main{
+
+    & .cards{
+
+        & .main{
+
+            & .crud{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                & .create_vaccination{
+                    margin: 20px 0;
+                    display: grid;
+                    grid-template-columns: repeat(6,1fr);
+                    gap: 10px;
+                    align-items: center;
+                    & div{
+                        width: 100%;
+
+                        & input{
+                            width: 100%;
+                            padding: 5px;
+                            font-size: 20px;
+                        }
+                    }
+
+                    & input{
+                        width: 100%;
+                        padding: 5px;
+                        font-size: 20px;
+                    }
+
+                    & select{
+                        width: 100%;
+                        padding: 5px;
+                        
+                        font-size: 20px;
+                        height: 45px;
+                    }
+
+                    & .btns{
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        gap: 10px;
+
+                        & input{
+                            width: 100%;
+                        }
+                    }
+
+                }
+
+
+                & .vaccination{
+                    display: grid;
+                    grid-template-columns: repeat(6,1fr);
+                    gap: 10px;
+                    align-items: center;
+                    & div{
+                        width: 100%;
+
+                        & input{
+                            width: 100%;
+                            padding: 5px;
+                            font-size: 20px;
+                        }
+                    }
+
+                    & input{
+                        width: 100%;
+                        padding: 5px;
+                        font-size: 20px;
+                    }
+
+                    & select{
+                        width: 100%;
+                        padding: 5px;
+                        
+                        font-size: 20px;
+                        height: 45px;
+                    }
+
+                    & .btns{
+                        display: flex;
+                        width: 100%;
+                        align-items: center;
+                        gap: 10px;
+
+                        & input{
+                            width: 100%;
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
 

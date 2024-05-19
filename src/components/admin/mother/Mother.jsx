@@ -1,121 +1,156 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Navbar from '../../main/Navbar';
 import Footer from '../../main/Footer';
+import { Context } from '../../../Context';
+import { Link } from 'react-router-dom/dist';
 
 const Mother = () => {
-    const [open,setOpen] = useState(false);
-    const [O,setO] = useState(false);
-    const [mother,setMother] = useState();
-    const [data,setData] = useState()
-
-  
+    const [data,setData] = useState([]);
+    const [table,setTable] = useState();
+    const { open ,motherPatient,motherChildren,vaccination} = useContext(Context);
+    
     const myFunc = (e) =>{
       if(e == "children"){
-        setData("Children")
+        setData(motherChildren)
+        setTable("Children")
       }
       else if(e == "vaccination"){
-        setData("Vaccination");
+        setData(vaccination);
+        setTable("Vaccination")
       }
       else if(e == "patient"){
-        setData("Patient")
+        setData(motherPatient)
+        setTable("Patient")
       }
     }
     return (
       <div className='mother_main'>
         <Navbar/>   
-        <div className="cards">
+        <div className="mother-cards">
             <div className='container'>
                 <div className="about_cards">
-                <div className='about'>
+                <div onClick={(e) => {myFunc("children")}} className='about'>
                 <p>My Children</p>
-                <p>3</p>
-                <button onClick={(e) => {myFunc("children")}} >View</button>
+                <h3>3</h3>
                 </div>
-                <div className='about'>
+                <div onClick={(e) => {myFunc("vaccination")}} className='about'>
                 <p>Vaccination</p>
-                <p>3</p>
-                <button onClick={(e) => {myFunc("vaccination")}}>View</button>
+                <h3>3</h3>
                 </div>
-                <div className='about'>
+                <div onClick={(e) => {myFunc("patient")}} className='about'>
                 <p>Patient</p>
-                <p>3</p>
-                <button disabled={!data} onClick={(e) => {myFunc("patient")}}>View</button>
+                <h3>3</h3>
                 </div>
+                </div>
+
+                <div className='for_phone'>
+                  <select onChange={(e) => {myFunc(e.target.value)}}>
+                    <option>none</option>
+                    <option value="patient">Patient</option>
+                    <option value="children">Children</option>
+                    <option value="vaccination">Vaccination</option>
+                  </select>
                 </div>
             </div>
+
             {
-                data ? 
-                <div className='main'> 
-                <div className="crud-mother"> 
-                <h1 className='param'>{data}</h1>
-                <ul className='table-m'>
-                <li>Name</li>
-                <li>Birth date</li>
-                <li>Birth certificate</li>
-                <li>Address</li>
-                <li>Blood group</li>
-                <li>Gender</li>
-                <li>Mother</li>
-                <li>Illnes</li>
-                <li>Height</li>
-                <li>Weight</li>
-                <li>Comment</li>
-                </ul>
-            <div className='baby'>
-                <img src="" alt="50" />
-                <div className="forchild">
-                <div className="inp">
-                <input disabled={!open} type="text" defaultValue={"Bohodir IKromov"} />
-                <input type="text" disabled={!open}  defaultValue={"01.03.2004"}/>
-                <input type="text" disabled={!open}  defaultValue={"birth serticifate"}/>
-                <input type="text" disabled={!open}  defaultValue={"address"}/>
-                <input type="text" disabled={!open}  defaultValue={"blood group"}/>
-                <input type="text" disabled={!open}  defaultValue={"male"}/>
-                <input type="text" disabled={!open}  defaultValue={"mother"}/>
-                <input type="text" disabled={!open}  defaultValue={"illnes"}/>
-                <input type="text" disabled={!open}  defaultValue={"40sm"}/>
-                <input type="text" disabled={!open}  defaultValue={"20kg"}/>
-                <input type="text" disabled={!open} placeholder='comment' />
-            </div>
-                </div>
-            </div>
-              </div>        
-            </div> :  <div className='main'> 
-                <div className="crud-mother"> 
+              table == "Patient" ? 
+              <div className='main-card'> 
+                <div className="container">      
                 <h1 className='param'>Patient</h1>
-                <ul className='table-m'>
-                <li>Name</li>
-                <li>Birth date</li>
-                <li>Birth certificate</li>
-                <li>Address</li>
-                <li>Blood group</li>
-                <li>Gender</li>
-                <li>Mother</li>
-                <li>Illnes</li>
-                <li>Height</li>
-                <li>Weight</li>
-                <li>Comment</li>
-                </ul>
-            <div className='baby'>
-                <img src="" alt="50" />
-                <div className="forchild">
-                <div className="inp">
-                <input disabled={!open} type="text" defaultValue={"Bohodir IKromov"} />
-                <input type="text" disabled={!open}  defaultValue={"01.03.2004"}/>
-                <input type="text" disabled={!open}  defaultValue={"birth serticifate"}/>
-                <input type="text" disabled={!open}  defaultValue={"address"}/>
-                <input type="text" disabled={!open}  defaultValue={"blood group"}/>
-                <input type="text" disabled={!open}  defaultValue={"male"}/>
-                <input type="text" disabled={!open}  defaultValue={"mother"}/>
-                <input type="text" disabled={!open}  defaultValue={"illnes"}/>
-                <input type="text" disabled={!open}  defaultValue={"40sm"}/>
-                <input type="text" disabled={!open}  defaultValue={"20kg"}/>
-                <input type="text" disabled={!open} placeholder='comment' />
-            </div>
+                <div className="mother_patient">
+                  {
+                    motherPatient.map((el) => {
+                      return(
+                        <Link to={`/mother/patient/${el.id}`}>
+                        <div className='cards'>
+                          <ul className='table'>
+                          <p>Name</p>
+                          <p>Image EMB</p>
+                          <p>Date</p>
+                          <p>Next Date</p>
+                          <p>Attendence</p>
+                          <p>Comment</p>
+                          </ul>
+                          <div className="table">
+                          <p>{el.name}</p>
+                          <Link> view image </Link>
+                          <p>{el.date.slice(0,10)}</p>
+                          <p>{el.next_date.slice(0,10)}</p>
+                          <p>{el.next_date_attendance === true ? "true" : "false"}</p>
+                          <p>{el.comment.slice(0,10)}....</p>
+                          </div>
+                        </div>
+                        </Link>
+                      )
+                    })
+                  }
                 </div>
-            </div>
               </div>        
-            </div>
+            </div> :
+            table == "Children" ? 
+            <div className='main-card'> 
+                <div className="container">      
+                <h1 className='param'>Children</h1>
+                <div className="mother_patient">
+                  {
+                    motherChildren.map((el) => {
+                      return(
+                        <Link to={`/mother/child/${el.id}`}>
+                        <div className='cards'>
+                          <ul className='table'>
+                          <p>Name</p>
+                          <p>Birth Date</p>
+                          <p>Certificate</p>
+                          <p>Illness</p>
+                          <p>Gender</p>
+                          <p>Blood</p>
+                          </ul>
+                          <div className="table">
+                          <p>{el.full_name}</p>
+                          <p>{el.birth_date.slice(0,10)}</p>
+                          <p>{el.birth_certificate_id}</p>
+                          <p>{el.illness == true ? "yes" : "no" }</p>
+                          <p>{el.gender}</p>
+                          <p>{el.blood_group}</p>
+                          </div>
+                        </div>
+                        </Link>
+                      )
+                    })
+                  }
+                </div>
+              </div>        
+            </div> : 
+           <div className='main-card'> 
+           <div className="container">      
+           <h1 className='param'>Vaccination</h1>
+           <div className="mother_patient">
+             {
+               vaccination?.map((el) => {
+                 return(
+                   <Link to={`/mother/vaccination/${el.id}`}>
+                   <div className='cards'>
+                     <ul className='table'>
+                     <p>Name</p>
+                     <p>Date</p>
+                     <p>Status</p>
+                     <p>Comment</p>
+                     </ul>
+                     <div className="table">
+                     <p>{el.name}</p>
+                     <p>{el.date.slice(0,10)}</p>
+                     <p>{el.status}</p>
+                     <p>{el.comment.slice(0,10)}....</p>
+                     </div>
+                   </div>
+                   </Link>
+                 )
+               })
+             }
+           </div>
+         </div>        
+       </div>
             }
         </div>
         <Footer/>
